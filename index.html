@@ -70,17 +70,26 @@
    color: #effb06;
    opacity: 0.6;
  } 
-   #k{
-    padding-top: 15%;
+ a{
+  color: black;
+ }
+   #k1{
+    display:None;
    }
  #PIC:hover{
 			  transform:scale(1.1);
 			  transition-duration:0.1s;
-        box-shadow: 0 0 5px rgb(253, 254, 252),
-                        0 0 25px rgb(254, 255, 254),
-                        0 0 30px rgb(251, 252, 250);
-        }        
-    @media only screen and (max-width: 600px) {
+        box-shadow: 0 0 10px rgb(253, 254, 252),
+                        0 0 15px rgb(254, 255, 254);
+        }  
+  button:hover{
+			  transform:scale(1.1);
+			  transition-duration:0.1s;
+        box-shadow: 0 0 5px #1911b3,
+                        0 0 25px #1911b3,
+                        0 0 30px #1911b3;
+        }         
+    @media only screen and (max-width: 740px) {
       #Title {
         content: url('images/headerpic SM.png');
         height: 80%; /* Replace with the path to your new image */
@@ -91,6 +100,12 @@
      #INC {
         display: block;
         height: 520px; /* Remove max height for smaller screens */
+      }
+      #k{
+        display:None;
+      }
+      #k1{
+        display:block;
       }
     }
     @media only screen and (max-width: 930px){
@@ -104,13 +119,38 @@
      #ct{
       opacity: 0.3;
      }
+     #k{
+        display:None;
+      }
+      #k1{
+        display:block;
+      }
     } 
     
     @media only screen and (max-width: 300px) {
       img {
         padding-right: 20px;
       }
+    }
 
+
+    #confirmationButtons {
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      z-index: 9999;
+      
+    }
+
+    #confirmationButtons a {
+      display: block;
+      margin-bottom: 10px;
     }
   </style>
 </head>
@@ -122,12 +162,12 @@
 
   <div id="content">
     <img id="Title" src="images/headerpic Normal.png" alt="Title Image">
+    <p id="k">Note: If you face any problems while connecting over Mobile or PC, just leave 1 of the rooms and rejoin at a time for VideoChat Rooms & also Note that the WEBSOCKET server consumes more Data than SDK Server for message rooms as it is faster. Thank you for Visiting Vavelink</p>
     <h3>Find the Chat and Video Rooms<h3>
     <h3>Below</h3>
     <div id="ct">
       <p>Developed by:<br> Mohammed Hasiem Malik</p>
     </div>
-    <br id="b">
    <div class="transparent-container" id="INC"> 
     <div class="transparent-container">    
       <a href="https://mhasiemmalik.github.io/VaveLink001/"><img src="images/1on1video.png" id="PIC" ></img>
@@ -136,9 +176,17 @@
     </div>
 
     <div class="transparent-container">
-      <a href="https://vavelinkchatroomsmalik-cmrec.koyeb.app/"><img src="images/Message2.png" style="height: 150px;" id="PIC"></img>
+      <a href="#" onclick="showConfirmationButtons()">
+        <img src="images/Vavelink Msg pic.png" style="height: 120px;" id="PIC">
       </a>
-        <p>1 on 1 Message Rooms</p>
+      <p>1 to many Message Rooms</p>
+    </div>
+  
+    <div id="confirmationButtons" style="background-color: #14decad7;">
+      <p >Choose/Click Any 1 From Below Please</p>
+      <a href="#" onclick="redirectToServer('https://vavelinkchatroomsmalik-cmrec.koyeb.app/')">{1} WEBSOCKET SERVER (Traditional)</a><br>
+      <a href="#" onclick="redirectToServer('https://server2-url.com')">{2} WEBRTM SERVER (Recommended)</a><br>
+      <button style="background-color: #1911b3;border-radius: 15%;" onclick="hideConfirmationButtons()"><p style="color: #fff;">Cancel</p></button>
     </div>
 
     <div class="transparent-container">
@@ -146,9 +194,28 @@
       </a>
         <p>Group Video Meeting Rooms</p>
     </div>
-    <p id="k">Note: if you face any problems while connecting in over Mobile ,just leave 1 of the rooms and rejoin at a time. Thank you for Visiting Vavelink</p>
-   </div>
+
+    <div class="transparent-container">
+      <a href="https://mhasiemmalik.github.io/Vavelink-VoiceRooms/"><img src="images/Voice Chat msg.png" style="height: 100px;" id="PIC"></img>
+      </a>
+        <p>1 to many Voice Chat Rooms</p>
+    </div>
+    <p id="k1">Note: If you face any problems while connecting over Mobile or PC, just leave 1 of the rooms and rejoin at a time for VideoChat Rooms & also Note that the WEBSOCKET server consumes more Data than SDK Server for message rooms as it is faster. Thank you for Visiting Vavelink</p>
+    
+     </div>
   </div>
-  
+  <script>
+    function showConfirmationButtons() {
+      document.getElementById('confirmationButtons').style.display = 'block';
+    }
+
+    function hideConfirmationButtons() {
+      document.getElementById('confirmationButtons').style.display = 'none';
+    }
+
+    function redirectToServer(serverURL) {
+      window.location.href = serverURL;
+    }
+  </script>
 </body>
 </html>
