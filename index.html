@@ -74,6 +74,7 @@
   color: black;
  }
    #k1{
+    padding-bottom: 150px;
     display:None;
    }
  #PIC:hover{
@@ -89,7 +90,7 @@
                         0 0 25px #1911b3,
                         0 0 30px #1911b3;
         }         
-    @media only screen and (max-width: 740px) {
+    @media only screen and (max-width: 680px) {
       #Title {
         content: url('images/headerpic SM.png');
         height: 80%; /* Replace with the path to your new image */
@@ -125,7 +126,26 @@
       #k1{
         display:block;
       }
+
+      
+
     } 
+
+    @media only screen and (min-width: 680px){
+      #k{
+        display:block;
+      }
+      #k1{
+        display:none;
+      }
+      #INC {
+      display: flex;
+      justify-content: space-around; /* Adjust as needed */
+      flex-wrap: nowrap;
+      overflow-x: auto; /* Enable vertical scrolling */
+      max-width: 100%; /* Set a max height for the container */
+    }
+    }
     
     @media only screen and (max-width: 300px) {
       img {
@@ -200,9 +220,15 @@
       </a>
         <p>1 to Many Voice Chat Rooms</p>
     </div>
-    <p id="k1">Note: If you face any problems while connecting over Mobile or PC, just leave 1 of the rooms and rejoin at a time for VideoChat Rooms & also Note that the WEBSOCKET server consumes more Data than SDK Server for message rooms as it is faster. Thank you for Visiting Vavelink</p>
-    
+    <div id="k1">
+      <p >Note: If you face any problems while connecting over Mobile or PC, 
+        just leave 1 of the rooms and rejoin at a time for VideoChat Rooms & 
+        also Note that the WEBSOCKET server consumes more Data than SDK Server 
+        for message rooms as it is faster. 
+         Thank you for Visiting Vavelink</p>
+    </div>
      </div>
+     
   </div>
   <script>
     function showConfirmationButtons() {
