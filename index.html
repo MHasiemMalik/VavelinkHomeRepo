@@ -86,9 +86,9 @@
   button:hover{
 			  transform:scale(1.1);
 			  transition-duration:0.1s;
-        box-shadow: 0 0 5px #1911b3,
-                        0 0 25px #1911b3,
-                        0 0 30px #1911b3;
+        box-shadow: 0 0 5px #ffffff,
+                        0 0 25px #ffffff,
+                        0 0 30px #ffffff;
         }         
     @media only screen and (max-width: 680px) {
       #Title {
@@ -168,7 +168,20 @@
       
     }
 
-    #confirmationButtons a {
+    #ChooseServer{
+      display: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      z-index: 9999;
+    }
+
+     a {
       display: block;
       margin-bottom: 10px;
     }
@@ -183,8 +196,8 @@
   <div id="content">
     <img id="Title" src="images/headerpic Normal.png" alt="Title Image">
     <p id="k">Note: For VideoChat Rooms if you face any problems while connecting over Mobile or PC, 
-      just leave 1 of the rooms and rejoin at a time  & 
-      also Note that for the message rooms  WEBSOCKET server consumes more Data than SDK Server.
+      try switching between servers or refresh/re enter the rooms  & 
+      also Note that for the message rooms  WEBSOCKET server consumes more Data than RTM Server.
       Thank you for Visiting Vavelink</p>
     <h3>Find the Chat and Video Rooms<h3>
     <h3>Below</h3>
@@ -193,9 +206,16 @@
     </div>
    <div class="transparent-container" id="INC"> 
     <div class="transparent-container">    
-      <a href="https://mhasiemmalik.github.io/VaveLink001/"><img src="images/1on1video1.png" style="height: 120px;" id="PIC" ></img>
+      <a href="#"  onclick="showVideoChatServer()"><img src="images/1on1video1.png" style="height: 120px;" id="PIC" ></img>
       </a>
       <p>1 on 1 Video Chat Rooms</p>
+    </div>
+
+    <div id="ChooseServer" style="background-color: rgba(224, 149, 36, 0.886);">
+      <p >Choose/Click Any 1 From Below Please</p>
+      <a href="#" onclick="redirectToServer('https://mhasiemmalik.github.io/VaveLinkTEST/')">{1} Network SERVER (PC browser)</a><br>
+      <a href="#" onclick="redirectToServer('https://mhasiemmalik.github.io/VaveLink001/')">{2} Mobile SERVER (Normal browser)</a><br>
+      <button style="background-color: #1911b3;border-radius: 15%;" onclick="hideVideoChatServer()"><p style="color: #fff;">Cancel</p></button>
     </div>
 
     <div class="transparent-container">
@@ -225,8 +245,8 @@
     </div>
     <div id="k1">
       <p >Note: For VideoChat Rooms if you face any problems while connecting over Mobile or PC, 
-        just leave 1 of the rooms and rejoin at a time  & 
-        also Note that for the message rooms  WEBSOCKET server consumes more Data than SDK Server.
+        try switching between servers or refresh/re enter the rooms  & 
+        also Note that for the message rooms  WEBSOCKET server consumes more Data than RTM Server.
         Thank you for Visiting Vavelink</p>
     </div>
      </div>
@@ -239,6 +259,20 @@
 
     function hideConfirmationButtons() {
       document.getElementById('confirmationButtons').style.display = 'none';
+    }
+
+    function redirectToServer(serverURL) {
+      window.location.href = serverURL;
+    }
+
+
+
+    function showVideoChatServer() {
+      document.getElementById('ChooseServer').style.display = 'block';
+    }
+
+    function hideVideoChatServer() {
+      document.getElementById('ChooseServer').style.display = 'none';
     }
 
     function redirectToServer(serverURL) {
